@@ -8,7 +8,7 @@ const path = require('path');
 
 app.use(logger('dev'));
 app.use(cors())
-app.use(express.static(path.join(__dirname, '../frontend','build'))); //make react build static
+app.use(express.static(path.join(__dirname, 'build'))); //make react build static
 console.log(path.join(__dirname, '../frontend','build')); //check
 
 app.get('/api/getTodo', async (req, res) => {
@@ -29,7 +29,7 @@ app.get('/api/getTodo', async (req, res) => {
 
 app.get('*', async (req, res) => {
     try{
-        res.sendFile(path.join(__dirname, '../frontend','build','index.html'));
+        res.sendFile(path.join(__dirname, 'build','index.html'));
     }
     catch(err) {
         console.log(err)
